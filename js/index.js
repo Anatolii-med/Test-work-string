@@ -59,17 +59,11 @@ window.onmousemove = (e) => {
 			e.clientX - activeElement.offsetWidth / 2 + "px";
 		activeElement.style.top =
 			e.clientY - activeElement.offsetHeight / 2 + "px";
-		window.onmousedown = (e) => {
-			unSetActive();
-		};
 	}
 };
 
 window.addEventListener("click", (e) => {
 	if (document.querySelectorAll(".active")) {
 		unSetActive();
-
-		console.log("window.addEventListener ~ e.clientX", e.clientX);
-		console.log("window.addEventListener ~ e.clientY", e.clientY);
 	}
 });
