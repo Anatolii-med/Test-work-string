@@ -5,11 +5,10 @@ body {
 .item {
 	position: absolute;
 	top: 50px;
-	border: 1px solid black;
 }
 
 .item-text {
-	font-size: 20px;
+	font-size: 25px;
 }
 
 .active {
