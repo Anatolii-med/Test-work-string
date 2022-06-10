@@ -6,10 +6,6 @@ body {
 	position: absolute;
 	top: 50px;
 	border: 1px solid black;
-	/* left: 20px: */
-	/* &: nth-child(n){
-        
-    } */
 }
 
 .item-text {

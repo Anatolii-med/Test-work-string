@@ -7,7 +7,6 @@ let string = null;
 form.addEventListener("click", (e) => {
 	e.preventDefault();
 	if (!inputText.value.trim()) {
-		// alert("Enter a vulue for magic %)");
 		return;
 	}
 
@@ -30,8 +29,15 @@ form.addEventListener("click", (e) => {
 	if (items) {
 		for (let i = 0; i < items.length; i += 1) {
 			items[i].addEventListener("click", (e) => {
-				unSetActive();
-				items[i].classList.add("active");
+				if (items[i].classList.contains("active")) {
+					items[i].classList.remove("active");
+					console.log("remove if");
+				} else {
+					unSetActive();
+					console.log("add else");
+					items[i].classList.add("active");
+				}
+
 				e.stopPropagation();
 			});
 		}
@@ -44,13 +50,24 @@ function unSetActive(e) {
 	const activeItem = document.querySelector(".active");
 	if (activeItem) {
 		activeItem.classList.remove("active");
+		console.log("unset");
 	}
 }
+window.onmousemove = (e) => {
+	const activeElement = document.querySelector(".active");
+	if (activeElement) {
+		activeElement.style.left =
+			e.clientX - activeElement.offsetWidth / 2 + "px";
+		activeElement.style.top =
+			e.clientY - activeElement.offsetHeight / 2 + "px";
+		window.onmousedown = (e) => {
+			unSetActive();
+		};
+	}
+};
 
 window.addEventListener("click", (e) => {
 	if (document.querySelectorAll(".active")) {
-		document.querySelector(".active").style.left = e.clientX + "px";
-		document.querySelector(".active").style.top = e.clientY + "px";
 		unSetActive();
 
 		console.log("window.addEventListener ~ e.clientX", e.clientX);
