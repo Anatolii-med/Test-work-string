@@ -1,10 +1,9 @@
-const submitBtn = document.querySelector(".submitButton");
 const inputText = document.querySelector(".inputString");
 const outputArea = document.querySelector(".outputArea");
 const form = document.querySelector(".form");
 let string = null;
 
-form.addEventListener("click", (e) => {
+form.addEventListener("submit", (e) => {
 	e.preventDefault();
 	if (!inputText.value.trim()) {
 		return;
